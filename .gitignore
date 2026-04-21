@@ -1,0 +1,60 @@
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# VS Code / IDE
+.vscode/
+.idea/
+
+# Environment variables (IMPORTANT)
+.env
+
+# Data files (large / sensitive)
+data/
+*.csv
+*.xlsx
+*.json
+
+# Model files (ML/DL)
+*.h5
+*.hdf5
+*.pkl
+*.joblib
+*.pt
+
+# Images (if generated/scraped)
+images/
+*.png
+*.jpg
+*.jpeg
+
+# Flask / app cache
+instance/
+*.db
+*.sqlite3
+
+# Build files
+build/
+dist/
+*.egg-info/
+
+# Temporary files
+tmp/
+temp/

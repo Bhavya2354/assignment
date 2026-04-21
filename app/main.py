@@ -5,7 +5,7 @@ from PIL import Image
 import os
 
 from app.detector import run_detection
-from app.utils import draw_detections
+from app.utils import draw_detections, apply_nms
 
 app = FastAPI(title="Open-Vocabulary Object Detection API")
 
@@ -23,13 +23,19 @@ def detect(request: DetectionRequest):
         raise HTTPException(status_code=404, detail=f"Input image not found at {IMAGE_PATH}")
 
     image = Image.open(IMAGE_PATH).convert("RGB")
+
+    # Pass the query exactly as given by user — no expansion, no hardcoding
+    # Multi-label queries like "book, bottle" are split inside run_detection
     detections = run_detection(image, request.query, threshold=request.threshold)
+
+    # Remove overlapping duplicate boxes from multi-label separate forward passes
+    detections = apply_nms(detections, iou_threshold=0.5)
 
     if not detections:
         return {
             "detections": [],
             "output_image_path": None,
-            "message": "No objects detected. Try lowering the threshold.",
+            "message": "No objects detected. Try lowering the threshold or rephrasing the query.",
         }
 
     output_path = draw_detections(image, detections)
