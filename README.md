@@ -1,3 +1,5 @@
+DEMO_VIDEO = https://drive.google.com/file/d/1mXvHxaNF0hfPoyiGrhllKII_4-5edIRs/view?usp=sharing
+
 Open-Vocabulary Object Detection API
 Overview
 This project is a text-driven object detection system built using GroundingDINO and FastAPI. The system accepts a natural language query describing an object, detects it in a given static image, and returns structured results including bounding boxes, center coordinates, and confidence scores. Every detection is also saved as an annotated image with boxes and labels drawn on it.
