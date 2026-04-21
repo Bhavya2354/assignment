@@ -19,15 +19,17 @@ The glass liquor bottle and the plastic water bottle in the image are both trans
 Running separate forward passes per label also means the same object can sometimes be detected twice with slightly overlapping boxes. Non-Maximum Suppression is applied after merging all detections to clean this up. It keeps the highest confidence box and removes any other box that overlaps it beyond a 50 percent IoU threshold, resulting in one clean detection per object.
 
 Project Structure
+//
 assignment/
 ├── app/
-│   ├── main.py         — FastAPI server
-│   ├── detector.py     — Model inference
-│   └── utils.py        — NMS and visualization
+│   ├── main.py        # FastAPI server
+│   ├── detector.py    # Model inference
+│   └── utils.py       # NMS and visualization
 ├── data/
-│   └── input.png       — Input image
-├── outputs/            — Saved annotated results
-└── requirements.txt
+│   └── input.png      # Input image
+├── outputs/           # Saved annotated results
+└── requirements.txt   # Dependencies
+//
 
 Setup and Running
 pip install -r requirements.txt
