@@ -24,11 +24,8 @@ def detect(request: DetectionRequest):
 
     image = Image.open(IMAGE_PATH).convert("RGB")
 
-    # Pass the query exactly as given by user — no expansion, no hardcoding
-    # Multi-label queries like "book, bottle" are split inside run_detection
     detections = run_detection(image, request.query, threshold=request.threshold)
 
-    # Remove overlapping duplicate boxes from multi-label separate forward passes
     detections = apply_nms(detections, iou_threshold=0.5)
 
     if not detections:
