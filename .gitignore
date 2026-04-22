@@ -30,7 +30,6 @@ Thumbs.db
 data/
 *.csv
 *.xlsx
-*.json
 
 # Model files (ML/DL)
 *.h5
@@ -39,11 +38,6 @@ data/
 *.joblib
 *.pt
 
-# Images (if generated/scraped)
-images/
-*.png
-*.jpg
-*.jpeg
 
 # Flask / app cache
 instance/
